@@ -1,65 +1,47 @@
 # FFMPEG
 
-> Anticloud offline package — upstream: FFmpeg/FFmpeg @ `master`.
+> FFmpeg is a collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata.
 
-## What This Project Does
+**Category:** MOVIES_MEDIA · **Ecosystem:** unknown · **Vendored upstream:** https://github.com/FFmpeg/FFmpeg · **Pinned commit:** `3c92f003c7d1a249cd921a74e5b22297e1368014` · **Vendor:** Anticloud FZ LLE
 
-Mirror of https://git.ffmpeg.org/ffmpeg.git
+## What This Project Is
 
-**Topics:** audio, c, ffmpeg, fft, hevc, hls, matroska, mp4, mpeg, multimedia, rtmp, rtsp, streaming, video, webm
+FFmpeg is a collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata.
 
-## Upstream README
+This is the upstream project, vendored at the pinned commit above and packaged offline-first. The 12 improvements Anticloud adds live in `anticloud/` and are described under *Anticloud Overlay* below. Every fact in this file traces to a file in this directory.
 
-# FFmpeg README
+## Installation
 
-FFmpeg is a collection of libraries and tools to process multimedia content
-such as audio, video, subtitles and related metadata.
+```
+# See the upstream README (linked above) for build steps.
+```
 
-## Libraries
-
-* `libavcodec` provides implementation of a wider range of codecs.
-* `libavformat` implements streaming protocols, container formats and basic I/O access.
-* `libavutil` includes hashers, decompressors and miscellaneous utility functions.
-* `libavfilter` provides means to alter decoded audio and video through a directed graph of connected filters.
-* `libavdevice` provides an abstraction to access capture and playback devices.
-* `libswresample` implements audio mixing and resampling routines.
-* `libswscale` implements color conversion and scaling routines.
-
-## Tools
-
-* [ffmpeg](https://ffmpeg.org/ffmpeg.html) is a command line toolbox to
-  manipulate, convert and stream multimedia content.
-* [ffplay](https://ffmpeg.org/ffplay.html) is a minimalistic multimedia player.
-* [ffprobe](https://ffmpeg.org/ffprobe.html) is a simple analysis tool to inspect
-  multimedia content.
-* Additional small tools such as `aviocat`, `ismindex` and `qt-faststart`.
-
-## Documentation
-
-The offline documentation is available in the **doc/** directory.
-
-The online documentation is available in the main [website](https://ffmpeg.org)
-and in the [wiki](https://trac.ffmpeg.org).
-
-### Examples
+## Usage
 
 Coding examples are available in the **doc/examples** directory.
 
-## License
+## Anticloud Overlay
 
-FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
-GPL. Please refer to the LICENSE file for detailed information.
+The 12 improvements live under `anticloud/`. Run the check suite from this directory:
 
-## Contributing
+```
+python anticloud/bench/runner.py --cwd anticloud
+```
 
-Patches should be submitted to [Forgejo](https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls) or the [ffmpeg-devel mailing list](https://lists.ffmpeg.org/mailman3/lists/ffmpeg-devel.ffmpeg.org/) using `git format-patch` or `git send-email`. Github pull requests should be avoided because they are not part of our review process and **will be ignored**.
+## Benchmark Results
 
-See [https://ffmpeg.org/developer.html](https://ffmpeg.org/developer.html) for more information.
+The suite is recorded in `BENCH.json`; no benchmark rows were found in this package.
 
-## License
+## Licence
 
-Upstream terms preserved in `THIRD_PARTY_LICENSES/`. Overlay licensed under Anticommons 0.1.0.
+The upstream licence is preserved in `LICENSE` and `THIRD_PARTY_LICENSES/`. The Anticloud overlay is licensed under Anticommons 0.1.0 (`ANTICOMMONS_LICENSE.md`).
 
 ## Verification
 
-Recompute the SHA3-256 of `BENCH.json` and compare to this package’s register. Any drift = invalid package.
+SHA3-256 of `BENCH.json`:
+
+```
+63eec3b207d7d189544f9e4daf5e5b304ceeff9ff274435d7b13f2ae78d5b603
+```
+
+Recompute the hash above and compare — any drift means the package has been tampered with and the seal is invalid. This is a self-assessment; no external audit has been performed and a SOC 2 / NIST independent audit is committed post-funding.
